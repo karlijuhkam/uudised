@@ -24,7 +24,6 @@ router.get('/', function(req, res) {
     res.json({ message: 'API töötab!' });   
 });
 
-
 //fetches all the news
 router.get('/news', function(req, res) {
     res.json({ message: '/news töötab!' });   
