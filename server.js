@@ -39,8 +39,9 @@ router.get('/', function(req, res) {
 
 
 
-//new post
+
 router.route('/news')
+    //new post
     .post(function(req, res) {
         var news = new News();
         news.title = req.body.title;
@@ -51,7 +52,7 @@ router.route('/news')
 
             res.json({ message: 'Post created!' });
         })
-
+    //fetch all posts
     .get(function(req, res) {
         News.find(function(err, news) {
             if (err)

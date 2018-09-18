@@ -2,7 +2,7 @@
   "name": "uudised",
   "version": "1.0.0",
   "description": "news server",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
