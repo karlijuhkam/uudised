@@ -3,6 +3,9 @@
 // BASE SETUP
 // =============================================================================
 
+//posts database schema
+var News = require('./app/models/news');
+
 // call the packages we need
 var express    = require('express');        // call express
 var app        = express();                 // define our app using express
