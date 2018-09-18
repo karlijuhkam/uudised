@@ -19,35 +19,29 @@ var port = process.env.PORT || 8080;        // set our port
 // =============================================================================
 var router = express.Router();              // get an instance of the express Router
 
+// middleware to use for all requests
+router.use(function(req, res, next) {
+    // do logging
+    console.log('Something is happening.');
+    next(); // make sure we go to the next routes and don't stop here
+});
+
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res) {
     res.json({ message: 'API töötab!' });   
 });
 
 //fetches all the news
-router.get('/news', function(req, res) {
-    res.json({ message: '/news töötab!' });   
+router.route('/news').get(function(req, res) {
+    res.json({ message: 'GET /news töötab!' });  
 });
 
 //new post
-router.post('/news', function(req, res) {
-    
+router.route('/news').post(function(req, res) {
+    res.json({ message: 'POST /news töötab!' });  
 });
 
-//gets a post (by id)
-router.get('/news/:news_ID', function(req, res) {
-    
-});
 
-//updates post (by id)
-router.put('/news/:news_ID', function(req, res) {
-    
-});
-
-//deletes a post (by id)
-router.delete('/news/:news_ID', function(req, res) {
-    
-});
 
 
 
