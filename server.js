@@ -21,10 +21,36 @@ var router = express.Router();              // get an instance of the express Ro
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res) {
-    res.json({ message: 'hooray! welcome to our api!' });   
+    res.json({ message: 'API töötab!' });   
 });
 
-// more routes for our API will happen here
+
+//fetches all the news
+router.get('/news', function(req, res) {
+    res.json({ message: '/news töötab!' });   
+});
+
+//new post
+router.post('/news', function(req, res) {
+    
+});
+
+//gets a post (by id)
+router.get('/news/:news_ID', function(req, res) {
+    
+});
+
+//updates post (by id)
+router.put('/news/:news_ID', function(req, res) {
+    
+});
+
+//deletes a post (by id)
+router.delete('/news/:news_ID', function(req, res) {
+    
+});
+
+
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
@@ -33,4 +59,4 @@ app.use('/api', router);
 // START THE SERVER
 // =============================================================================
 app.listen(port);
-console.log('Magic happens on port ' + port);
+console.log('Server jookseb pordil: ' + port);
