@@ -20,10 +20,10 @@ npm install
 
 ## Kasutatud vahendid
 
-* [Node.js](http://www.dropwizard.io/1.0.2/docs/)
-* [Express](http://www.dropwizard.io/1.0.2/docs/)
-* [Mongoose](http://www.dropwizard.io/1.0.2/docs/)
-* [body-parser](http://www.dropwizard.io/1.0.2/docs/)
+* [Node.js](https://nodejs.org/)
+* [Express](https://www.npmjs.com/package/express)
+* [Mongoose](https://www.npmjs.com/package/mongoose)
+* [body-parser](https://www.npmjs.com/package/body-parser)
 
 
 ## Autor
