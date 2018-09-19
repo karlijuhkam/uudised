@@ -70,6 +70,16 @@ router.route('/news')
         });
     });
 
+router.route('/news/:news_id')
+
+    // get post by id
+    .get(function(req, res) {
+        News.findById(req.params.news_id, function(err, news) {
+            if (err)
+                res.send(err);
+            res.json(news);
+        });
+    });
 
 
 // REGISTER OUR ROUTES -------------------------------
