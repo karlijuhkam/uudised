@@ -13,7 +13,7 @@ var bodyParser = require('body-parser');
 
 var mongoose   = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017'); // connect to our database
+mongoose.connect('mongodb://uudised:uudised123@ds016148.mlab.com:16148/atlas'); // connect to our database
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -39,29 +39,36 @@ router.get('/', function(req, res) {
 });
 
 
-
-
 router.route('/news')
     //new post
     .post(function(req, res) {
         var news = new News();
+
         news.title = req.body.title;
+        news.date = new Date();
+        news.author = req.body.author;
+        news.photoUrl = req.body.photoUrl;
+        news.content = req.body.content;
+        news.category = req.body.category;
+        news.tags = req.body.tags;
+
         // save the post and check for errors
         news.save(function(err) {
             if (err)
             res.send(err);
 
-            res.json({ message: 'Post created!' });
+            res.json({ message: 'Uudis lisatud!' });
         })
     })
-        .get(function(req, res) {
-            News.find(function(err, news) {
-               if (err)
-                res.send(err);
+    // fetches all news
+    .get(function(req, res) {
+        News.find(function(err, news) {
+            if (err)
+            res.send(err);
     
-                res.json(news);
-            });
+            res.json(news);
         });
+    });
 
 
 

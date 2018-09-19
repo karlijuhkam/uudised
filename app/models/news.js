@@ -4,7 +4,6 @@ var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
 
 var NewsSchema   = new Schema({
-    id: Number,
     title: String,
     date: Date,
     author: String,
