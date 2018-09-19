@@ -90,6 +90,26 @@ router.route('/news/:news_id')
 
             res.json({ message: 'Postitus kustutatud!' });
         });
+    })
+    // uuendab postitust
+    .update(function(req, res) {
+
+        News.findById(req.params.news_id, function(err, news) {
+
+            if (err)
+                res.send(err);
+
+            news.title = req.body.title;
+
+            // salvesta
+            news.save(function(err) {
+                if (err)
+                    res.send(err);
+
+                res.json({ message: 'Postitus uuendatud!' });
+            });
+
+        });
     });
     
 
