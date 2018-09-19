@@ -43,7 +43,7 @@ router.route('/news')
     //new post
     .post(function(req, res) {
         var news = new News();
-//test
+//test2
         news.title = req.body.title;
         news.date = new Date();
         news.author = req.body.author;
