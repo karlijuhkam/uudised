@@ -79,7 +79,19 @@ router.route('/news/:news_id')
                 res.send(err);
             res.json(news);
         });
+    })
+    // deletes post by id
+    .delete(function(req, res) {
+        News.remove({
+            _id: req.params.news_id
+        }, function(err, news) {
+            if (err)
+                res.send(err);
+
+            res.json({ message: 'Postitus kustutatud!' });
+        });
     });
+    
 
 
 // REGISTER OUR ROUTES -------------------------------
