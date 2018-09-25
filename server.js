@@ -92,16 +92,22 @@ router.route('/news/:news_id')
         });
     })
     // uuendab postitust
-    .update(function(req, res) {
+    .put(function(req, res) {
 
         News.findById(req.params.news_id, function(err, news) {
 
             if (err)
                 res.send(err);
 
-            news.title = req.body.title;
+                news.title = req.body.title;
+                news.date = req.body.date;
+                news.author = req.body.author;
+                news.photoUrl = req.body.photoUrl;
+                news.content = req.body.content;
+                news.category = req.body.category;
+                news.tags = req.body.tags;
 
-            // salvesta
+            //salvesta
             news.save(function(err) {
                 if (err)
                     res.send(err);
