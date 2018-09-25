@@ -20,7 +20,7 @@ npm install
 Juurkausta tuleb luua .env fail väärtustega
 
 ```
-DB_URI = localhost:27176
+DB_URI=sinu_mongodb_aadress
 ```
 
 ### Kasutamine
@@ -40,6 +40,7 @@ node server.js
 * [Express](https://www.npmjs.com/package/express)
 * [Mongoose](https://www.npmjs.com/package/mongoose)
 * [body-parser](https://www.npmjs.com/package/body-parser)
+* [dotenv](https://www.npmjs.com/package/dotenv)
 
 
 ## Autor
