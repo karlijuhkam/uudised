@@ -23,6 +23,16 @@ Juurkausta tuleb luua .env fail väärtustega
 DB_URI = localhost:27176
 ```
 
+### Kasutamine
+Serveri käivitamisek kasuta
+```
+npm start
+```
+või
+```
+node server.js
+```
+
 
 ## Kasutatud vahendid
 
