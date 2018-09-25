@@ -3,6 +3,8 @@
 // BASE SETUP
 // =============================================================================
 
+const dotenv = require('dotenv').config()
+
 //posts database schema
 var News = require('./app/models/news');
 
@@ -12,8 +14,10 @@ var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 
 var mongoose   = require('mongoose');
+var db_user = process.env.DB_USER;
+var db_password = process.env.DB_PASSWORD;
 
-mongoose.connect('mongodb://uudised:uudised123@ds016148.mlab.com:16148/atlas'); // connect to our database
+mongoose.connect('mongodb://'+ db_user +':'+ db_password +'@ds016148.mlab.com:16148/atlas', { useNewUrlParser: true }); // connect to our database
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -35,7 +39,7 @@ router.use(function(req, res, next) {
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res) {
-    res.json({ message: 'API töötab!' });   
+    res.json({ message: 'API töötab!' });
 });
 
 
@@ -65,7 +69,7 @@ router.route('/news')
         News.find(function(err, news) {
             if (err)
             res.send(err);
-    
+
             res.json(news);
         });
     });
@@ -117,7 +121,6 @@ router.route('/news/:news_id')
 
         });
     });
-    
 
 
 // REGISTER OUR ROUTES -------------------------------
