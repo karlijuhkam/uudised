@@ -14,10 +14,8 @@ var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 
 var mongoose   = require('mongoose');
-var db_user = process.env.DB_USER;
-var db_password = process.env.DB_PASSWORD;
 
-mongoose.connect('mongodb://'+ db_user +':'+ db_password +'@ds016148.mlab.com:16148/atlas', { useNewUrlParser: true }); // connect to our database
+mongoose.connect( process.env.DB_URI ,{ useNewUrlParser: true }); // connect to our database
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST

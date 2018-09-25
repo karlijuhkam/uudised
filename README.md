@@ -17,6 +17,12 @@ Paigaldab vajalikud node'i moodulid
 npm install
 ```
 
+Juurkausta tuleb luua .env fail väärtustega
+
+```
+DB_URI = localhost:27176
+```
+
 
 ## Kasutatud vahendid
 
