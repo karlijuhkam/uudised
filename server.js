@@ -84,7 +84,7 @@ router.route('/news/:news_id')
     })
     // deletes post by id
     .delete(function(req, res) {
-        News.remove({
+        News.findByIdAndDelete({
             _id: req.params.news_id
         }, function(err, news) {
             if (err)
@@ -98,16 +98,14 @@ router.route('/news/:news_id')
 
         News.findById(req.params.news_id, function(err, news) {
 
-            if (err)
-                res.send(err);
-
+            console.log(req.body.title);
                 news.title = req.body.title;
-                news.date = req.body.date;
                 news.author = req.body.author;
                 news.photoUrl = req.body.photoUrl;
                 news.content = req.body.content;
                 news.category = req.body.category;
                 news.tags = req.body.tags;
+
 
             //salvesta
             news.save(function(err) {
