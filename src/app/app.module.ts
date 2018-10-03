@@ -14,6 +14,9 @@ const appRoutes: Routes = [
   { path: '',
     component: NewsComponent,
   },
+  { path:':id',
+    component: NewsComponent,
+  },
 ]
 
 @NgModule({

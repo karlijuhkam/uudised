@@ -12,9 +12,15 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
   API_URL = environment.apiUrl;
+  public id: string;
   constructor(private httpClient: HttpClient) { }
 
   public getAllPosts(){
-    return this.httpClient.get(`${this.API_URL}/news`);
+    return  this.httpClient.get(`${this.API_URL}/news`);
   }
+
+  public getPost(id: number){
+      return  this.httpClient.get(`${this.API_URL}/news/${this.id}`);
+  }
+
 }

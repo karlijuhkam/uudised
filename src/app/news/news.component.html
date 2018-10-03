@@ -1,6 +1,8 @@
-<div *ngFor="let post of posts" class="mb-2">
-      <h3>{{post.title}}</h3>
-      <span class="badge badge-dark">{{post.category}}</span><br>
+<div *ngFor="let post of posts" class="mb-4">
+      <h3 class="text-center">{{post.title}}</h3>
+      <p class="text-center"><span class="badge badge-dark">{{post.category}}</span> </p>
+      <div class="text-center mb-3"> <img src="{{post.photoUrl}}"></div>
+     
       <p>{{post.content}}</p>
       <p><span>{{ post.author }}</span>, <span>{{post.date}}</span></p>
 </div>
