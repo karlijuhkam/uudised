@@ -1,16 +1,20 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
-import { Http } from '@angular/http';
+import { HttpClientModule, HttpClient } from  '@angular/common/http';
+import { News } from './news';
+
+import { Observable } from 'rxjs';
+
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-
-  constructor(private http: Http) { }
+  API_URL = environment.apiUrl;
+  constructor(private httpClient: HttpClient) { }
 
   public getAllPosts(){
-
+    return this.httpClient.get(`${this.API_URL}/news`);
   }
 }
