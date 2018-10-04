@@ -1,11 +1,9 @@
-<p>
-  Id is {{id}}
-</p>
-<div class="mb-4" *ngFor="let post of posts">
-  <h3 class="text-center">{{post.title}}</h3>
-  <p class="text-center"><span class="badge badge-dark">{{post.category}}</span> </p>
-  <div class="text-center mb-3"> <img src="{{post.photoUrl}}"></div>
+
+<div class="mb-4" *ngIf="posts">
+  <h3 class="text-center">{{posts.title}}</h3>
+  <p class="text-center"><span class="badge badge-dark">{{posts.category}}</span> </p>
+  <div class="text-center mb-3"> <img src="{{posts.photoUrl}}"></div>
  
-  <p>{{post.content}}</p>
-  <p><span>{{ post.author }}</span>, <span>{{post.date}}</span></p>
+  <p>{{posts.content}}</p>
+  <p><span>{{ posts.author }}</span>, <span>{{posts.date}}</span></p>
 </div>
