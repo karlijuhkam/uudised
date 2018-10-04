@@ -26,12 +26,12 @@ export class ApiService {
     return body || { };
   }
 
-  getProducts(): Observable<any> {
+  getPosts(): Observable<any> {
     return this.http.get(API_URL + '/news').pipe(
       map(this.extractData));
   }
 
-  getProduct(id): Observable<any> {
+  getPost(id): Observable<any> {
     return this.http.get(API_URL + '/news/' + id).pipe(
       map(this.extractData));
 }

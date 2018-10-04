@@ -13,7 +13,7 @@ export class SinglePostComponent implements OnInit {
   constructor(private  ApiService:  ApiService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.ApiService.getProduct(this.route.snapshot.params['id']).subscribe((data: {}) => {
+    this.ApiService.getPost(this.route.snapshot.params['id']).subscribe((data: {}) => {
       console.log(data);
       this.posts = data;
 

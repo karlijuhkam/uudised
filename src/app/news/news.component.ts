@@ -24,16 +24,13 @@ export class NewsComponent implements OnInit {
   ngOnInit() {
 
     this.getPosts();
-
-
-    this.id = this.route.snapshot.paramMap.get('id');
     // this.interval = setInterval(() => {
-    //     this.getAllPosts();
+    //     this.getPosts();
     // }, 5000);
   }
   getPosts() {
     this.posts = [];
-    this.ApiService.getProducts().subscribe((data: {}) => {
+    this.ApiService.getPosts().subscribe((data: {}) => {
       console.log(data);
       this.posts = data;
     });
