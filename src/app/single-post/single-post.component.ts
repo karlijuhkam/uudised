@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SinglePostComponent implements OnInit {
   public id: string;
-  private post:  Array<object> = [];
+  private posts:  Array<object> = [];
   constructor(private  ApiService:  ApiService, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -20,8 +20,8 @@ export class SinglePostComponent implements OnInit {
   }
 
   public getPostById(id){
-    this.ApiService.getPostById(id).subscribe((data:  Array<object>) => {
-        this.post = data;
+    this.ApiService.getPostById(this.id).subscribe((data:  Array<object>) => {
+        this.posts = data;
         console.log(data);
     });
 }
