@@ -9,7 +9,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./single-post.component.css']
 })
 export class SinglePostComponent implements OnInit {
-  public id: string;
   posts:any = [];
   constructor(private  ApiService:  ApiService, private route: ActivatedRoute) { }
 
