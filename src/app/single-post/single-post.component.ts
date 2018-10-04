@@ -10,19 +10,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SinglePostComponent implements OnInit {
   public id: string;
-  private posts:  Array<object> = [];
+  posts:any = [];
   constructor(private  ApiService:  ApiService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.id = this.route.snapshot.paramMap.get('id');
-    this.getPostById(this.id);
+    this.ApiService.getProduct(this.route.snapshot.params['id']).subscribe((data: {}) => {
+      console.log(data);
+      this.posts = data;
 
   }
 
-  public getPostById(id){
-    this.ApiService.getPostById(this.id).subscribe((data:  Array<object>) => {
-        this.posts = data;
-        console.log(data);
-    });
-}
+  
 }

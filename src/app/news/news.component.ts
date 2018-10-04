@@ -13,16 +13,17 @@ export class NewsComponent implements OnInit {
   title = 'Pealkiri';
   content= 'Sisu';
 
-  private  posts:  Array<object> = [];
+  // private  posts:  Array<object> = [];
   public id: string;
   interval : any;
+  posts:any = [];
 
   constructor(private  ApiService:  ApiService, private route: ActivatedRoute) { }
 
 
   ngOnInit() {
 
-      this.getAllPosts();
+    this.getPosts();
 
 
     this.id = this.route.snapshot.paramMap.get('id');
@@ -30,16 +31,13 @@ export class NewsComponent implements OnInit {
     //     this.getAllPosts();
     // }, 5000);
   }
-  public getAllPosts(){
-    this.ApiService.getAllPosts().subscribe((data:  Array<object>) => {
-        this.posts = data;
-        console.log(data);
+  getPosts() {
+    this.posts = [];
+    this.ApiService.getProducts().subscribe((data: {}) => {
+      console.log(data);
+      this.posts = data;
     });
-}
+  }
 
-
-
-}
-class Test {
 
 }

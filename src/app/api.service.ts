@@ -1,26 +1,52 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
-import { HttpClientModule, HttpClient } from  '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from  '@angular/common/http';
 
-import { Observable } from 'rxjs';
-import { SinglePostComponent } from './single-post/single-post.component';
+import { Observable, of } from 'rxjs';
+import { map, catchError, tap } from 'rxjs/operators';
 
 
+const API_URL = environment.apiUrl;
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  API_URL = environment.apiUrl;
+
   public id: string;
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  public getAllPosts(){
-    return  this.httpClient.get(`${this.API_URL}/news`);
+  private extractData(res: Response) {
+    let body = res;
+    return body || { };
   }
 
-  public getPostById(id: string){
-      return  this.httpClient.get(`${this.API_URL}/news/${this.id}`);
+  getProducts(): Observable<any> {
+    return this.http.get(API_URL + '/news').pipe(
+      map(this.extractData));
   }
+
+  getProduct(id): Observable<any> {
+    return this.http.get(API_URL + '/news/' + id).pipe(
+      map(this.extractData));
+}
+private handleError<T> (operation = 'operation', result?: T) {
+  return (error: any): Observable<T> => {
+
+    // TODO: send the error to remote logging infrastructure
+    console.error(error); // log to console instead
+
+    // TODO: better job of transforming error for user consumption
+    console.log(`${operation} failed: ${error.message}`);
+
+    // Let the app keep running by returning an empty result.
+    return of(result as T);
+  };
+}
 
 }
