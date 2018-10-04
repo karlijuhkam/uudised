@@ -18,7 +18,6 @@ export class SinglePostComponent implements OnInit {
       console.log(data);
       this.posts = data;
 
+  })
   }
-
-  
 }
