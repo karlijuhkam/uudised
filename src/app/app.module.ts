@@ -7,6 +7,7 @@ import { NewsComponent } from './news/news.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from './api.service';
+import { SinglePostComponent } from './single-post/single-post.component';
 
 
 //we'll add our routes here
@@ -15,14 +16,15 @@ const appRoutes: Routes = [
     component: NewsComponent,
   },
   { path:':id',
-    component: NewsComponent,
+    component: SinglePostComponent,
   },
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    NewsComponent
+    NewsComponent,
+    SinglePostComponent
   ],
   imports: [
     BrowserModule,

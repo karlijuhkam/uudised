@@ -19,8 +19,8 @@ export class ApiService {
     return  this.httpClient.get(`${this.API_URL}/news`);
   }
 
-  public getPost(id: number){
-      return  this.httpClient.get(`${this.API_URL}/news/${this.id}`);
+  public getPostById(id: number){
+      return  this.httpClient.get(`${this.API_URL}/news${this.id}`);
   }
 
 }
