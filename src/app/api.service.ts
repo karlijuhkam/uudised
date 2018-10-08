@@ -34,7 +34,14 @@ export class ApiService {
   getPost(id): Observable<any> {
     return this.http.get(API_URL + '/news/' + id).pipe(
       map(this.extractData));
-}
+  }
+  addPost (post): Observable<any> {
+    console.log(post);
+    return this.http.post<any>(API_URL + '/news', JSON.stringify(post), httpOptions).pipe(
+      tap((post) => console.log(`added post w/ id=${post.id}`)),
+      catchError(this.handleError<any>('addPost'))
+    );
+  }
 private handleError<T> (operation = 'operation', result?: T) {
   return (error: any): Observable<T> => {
 

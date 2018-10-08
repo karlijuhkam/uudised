@@ -1,0 +1,15 @@
+<div class="m-4 p-4">
+  <h3>Lisa uudis</h3>
+  <div>
+    <label>Pealkiri:
+      <input [(ngModel)]="postData.title"/>
+    </label><br>
+    <label>Sisu
+      <input [(ngModel)]="postData.content"/>
+    </label><br>
+    <label>Pildi URL:
+      <textarea [(ngModel)]="postData.photoUrl"></textarea>
+    </label><br>
+  </div>
+  <button (click)="addPost()">Salvesta</button>
+</div>
