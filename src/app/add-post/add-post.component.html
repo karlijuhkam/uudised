@@ -1,4 +1,4 @@
-<div class="m-4 p-4">
+<div class="m-4 p-4 addNews">
   <h3>Lisa uudis</h3>
   <div>
     <label>Pealkiri:
@@ -8,7 +8,7 @@
       <input [(ngModel)]="postData.photoUrl"/>
     </label><br>
     <label>Sisu:
-      <editor [(ngModel)]="postData.content" apiKey="test" [init]="{plugins: 'link'}"></editor>
+      <editor [(ngModel)]="postData.content" apiKey="test" [init]="{plugins: 'link',width: 1000, height: 300}"></editor>
     </label><br>
   </div>
   <button (click)="addPost()">Salvesta</button>

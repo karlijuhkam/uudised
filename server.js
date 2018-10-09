@@ -98,7 +98,6 @@ router.route('/news/:news_id')
 
         News.findById(req.params.news_id, function(err, news) {
 
-            console.log(req.body.title);
                 news.title = req.body.title;
                 news.author = req.body.author;
                 news.photoUrl = req.body.photoUrl;
