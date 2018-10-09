@@ -2,11 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-// import { Observable } from "rxjs";
+import { EditorModule } from '@tinymce/tinymce-angular';
+// import { Observable } from 'rxjs';
 import { NewsComponent } from './news/news.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { ApiService } from './api.service';
+
 import { SinglePostComponent } from './single-post/single-post.component';
 import { AddPostComponent } from './add-post/add-post.component';
 
@@ -35,6 +36,7 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    EditorModule, // <- Important part
     // Observable,
     RouterModule.forRoot(
       appRoutes,

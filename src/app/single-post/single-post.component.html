@@ -4,6 +4,6 @@
   <p class="text-center"><span class="badge badge-dark">{{posts.category}}</span> </p>
   <div class="text-center mb-3"> <img src="{{posts.photoUrl}}"></div>
  
-  <p>{{posts.content}}</p>
+  <p [innerHtml]="posts.content"></p>
   <p><span>{{ posts.author }}</span>, <span>{{posts.date}}</span></p>
 </div>

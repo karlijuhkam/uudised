@@ -16,7 +16,6 @@ export class SinglePostComponent implements OnInit {
     this.ApiService.getPost(this.route.snapshot.params['id']).subscribe((data: {}) => {
       console.log(data);
       this.posts = data;
-
   })
   }
 }

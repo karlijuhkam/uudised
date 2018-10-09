@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../api.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 @Component({
   selector: 'app-add-post',
@@ -9,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AddPostComponent implements OnInit {
 
-  @Input() postData = { title:'', content: '', photoUrl:'' };
+  @Input() postData = { title:'', content: '', photoUrl:'', category:'' };
   constructor(private  ApiService:  ApiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
