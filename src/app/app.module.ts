@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
+import { ImageUploadModule } from "angular2-image-upload";
 // import { Observable } from 'rxjs';
 import { NewsComponent } from './news/news.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -37,6 +38,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule,
     EditorModule, // <- Important part
+    ImageUploadModule.forRoot(),
     // Observable,
     RouterModule.forRoot(
       appRoutes,

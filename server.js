@@ -12,6 +12,7 @@ var News = require('./app/models/news');
 var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
 
 var mongoose   = require('mongoose');
 
@@ -125,6 +126,25 @@ router.route('/news/:news_id')
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.use('/api', router);
+
+//endpoint for uploading files
+app.use(fileUpload());
+
+app.post('/upload', function(req, res) {
+    if (!req.files)
+      return res.status(400).send('No files were uploaded.');
+
+    // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+    let sampleFile = req.files.uploadPic;
+
+    // Use the mv() method to place the file somewhere on your server
+    sampleFile.mv('/files/filename.jpg', function(err) {
+      if (err)
+        return res.status(500).send(err);
+
+      res.send('File uploaded!');
+    });
+  });
 
 
 // START THE SERVER

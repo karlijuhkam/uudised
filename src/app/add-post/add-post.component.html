@@ -4,11 +4,26 @@
     <label>Pealkiri:
       <input [(ngModel)]="postData.title"/>
     </label><br>
+    <!-- <image-upload 
+      name="uploadPic"
+      [extensions]="['jpg','png','gif']"
+      [buttonCaption]="'Lisa Pilt'"
+      [dropBoxMessage]="'Lohista pilt siia!'"
+      [url]="'http://localhost:8080/upload'">
+  </image-upload> -->
+  <form ref='uploadForm' 
+      id='uploadForm' 
+      action='http://localhost:8080/upload' 
+      method='post' 
+      encType="multipart/form-data">
+        <input type="file" name="uploadPic" />
+        <input type='submit' value='Upload!' />
+    </form> 
     <label>Pildi URL:
       <input [(ngModel)]="postData.photoUrl"/>
     </label><br>
     <label>Sisu:
-      <editor [(ngModel)]="postData.content" apiKey="test" [init]="{plugins: 'link',width: 1000, height: 300}"></editor>
+      <editor [(ngModel)]="postData.content" apiKey="test" [init]="{plugins: 'link', width: '1000', height: 300}"></editor>
     </label><br>
   </div>
   <button (click)="addPost()">Salvesta</button>
