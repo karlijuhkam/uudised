@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AddPostComponent implements OnInit {
 
-  @Input() postData = { title:'', content: '', photoUrl:'', category:'' };
+  @Input() postData = { title:'', content: '', photoUrl:'', category:'', tags:'' };
   constructor(private  ApiService:  ApiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {

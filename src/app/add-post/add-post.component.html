@@ -1,9 +1,10 @@
 <div class="m-4 p-4 addNews">
   <h3>Lisa uudis</h3>
   <div>
-    <label>Pealkiri:
-      <input [(ngModel)]="postData.title"/>
-    </label><br>
+      <div class="form-group">
+          <label>Pealkiri</label>
+          <input type="text" class="form-control" [(ngModel)]="postData.title">
+      </div>
     <!-- <image-upload 
       name="uploadPic"
       [extensions]="['jpg','png','gif']"
@@ -13,18 +14,37 @@
   </image-upload> -->
   <form ref='uploadForm' 
       id='uploadForm' 
-      action='http://localhost:8080/upload' 
+      action='http://localhost:8080/api/upload' 
       method='post' 
       encType="multipart/form-data">
-        <input type="file" name="uploadPic" />
-        <input type='submit' value='Upload!' />
+      <div class="form-group">
+          <input type="file" name="uploadPic" />
+          <input class="btn btn-primary my-1" type='submit' value='Upload!' />
+      </div>
+        
     </form> 
-    <label>Pildi URL:
-      <input [(ngModel)]="postData.photoUrl"/>
-    </label><br>
-    <label>Sisu:
-      <editor [(ngModel)]="postData.content" apiKey="test" [init]="{plugins: 'link', width: '1000', height: 300}"></editor>
-    </label><br>
+    <div class="form-group">
+        <label>Pildi URL</label>
+        <input type="text" class="form-control" [(ngModel)]="postData.photoUrl">
+    </div>
+    <div class="form-group">
+        <label>Sisu</label>
+        <editor [(ngModel)]="postData.content" apiKey="test" [init]="{plugins: 'link', width: '1000', height: 300}"></editor>
+    </div>
+    <div class="form-group">
+        <label for="kategooriad">Kategooriad</label>
+        <select class="form-control" id="kategooriad" [(ngModel)]="postData.category">
+          <option>Eesti</option>
+          <option>Maailm</option>
+          <option>Kultuur</option>
+          <option>Majandus</option>
+          <option>Arvamus</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Märksõnad</label>
+        <input type="text" class="form-control" [(ngModel)]="postData.tags">
+    </div>
   </div>
-  <button (click)="addPost()">Salvesta</button>
+  <button (click)="addPost()" class="btn btn-primary my-1">Salvesta</button>
 </div>
