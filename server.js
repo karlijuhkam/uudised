@@ -23,12 +23,20 @@ mongoose.connect( process.env.DB_URI ,{ useNewUrlParser: true }); // connect to 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+
+
 var port = process.env.PORT || 8080;        // set our port
 
 // ROUTES FOR OUR API
 // =============================================================================
 var router = express.Router();              // get an instance of the express Router
 
+router.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Methods","GET, POST, PUT, DELETE");
+    next();
+});
 // middleware to use for all requests
 router.use(function(req, res, next) {
     // do logging
@@ -118,11 +126,7 @@ router.route('/news/:news_id')
         });
     });
 
-    app.use(function(req, res, next) {
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-        next();
-    });
+   
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.use('/api', router);
@@ -145,6 +149,7 @@ app.post('/upload', function(req, res) {
       res.send('File uploaded!');
     });
   });
+
 
 
 // START THE SERVER

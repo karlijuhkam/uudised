@@ -7,4 +7,6 @@
  
   <p [innerHtml]="posts.content"></p>
   <p>Autor: <span>{{ posts.author }}</span></p>
+  <button class="delete btn btn-danger" title="Kustuta postitus"
+                                    (click)="delete(posts._id)">x</button>
 </div>

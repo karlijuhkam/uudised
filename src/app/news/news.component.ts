@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
@@ -34,6 +35,16 @@ export class NewsComponent implements OnInit {
       console.log(data);
       this.posts = data;
     });
+  }
+
+  delete(id) {
+    this.ApiService.deletePost(id)
+      .subscribe(res => {
+          this.getPosts();
+        }, (err) => {
+          console.log(err);
+        }
+      );
   }
 
 

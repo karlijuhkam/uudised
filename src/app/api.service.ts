@@ -9,7 +9,7 @@ import { map, catchError, tap } from 'rxjs/operators';
 const API_URL = environment.apiUrl;
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json'
+    'Content-Type':  'application/json',
   })
 };
 
@@ -35,6 +35,7 @@ export class ApiService {
     return this.http.get(API_URL + '/news/' + id).pipe(
       map(this.extractData));
   }
+
   addPost (post): Observable<any> {
     console.log(post);
     return this.http.post<any>(API_URL + '/news', JSON.stringify(post), httpOptions).pipe(
@@ -42,6 +43,14 @@ export class ApiService {
       catchError(this.handleError<any>('addPost'))
     );
   }
+
+  deletePost (id): Observable<any> {
+    return this.http.delete<any>(API_URL + '/news/' + id, httpOptions).pipe(
+      tap(_ => console.log(`deleted post id=${id}`)),
+      catchError(this.handleError<any>('deleteProduct'))
+    );
+  }
+
 private handleError<T> (operation = 'operation', result?: T) {
   return (error: any): Observable<T> => {
 

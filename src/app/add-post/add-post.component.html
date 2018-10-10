@@ -5,14 +5,8 @@
           <label>Pealkiri</label>
           <input type="text" class="form-control" [(ngModel)]="postData.title">
       </div>
-    <!-- <image-upload 
-      name="uploadPic"
-      [extensions]="['jpg','png','gif']"
-      [buttonCaption]="'Lisa Pilt'"
-      [dropBoxMessage]="'Lohista pilt siia!'"
-      [url]="'http://localhost:8080/upload'">
-  </image-upload> -->
-  <form ref='uploadForm' 
+
+  <!-- <form ref='uploadForm' 
       id='uploadForm' 
       action='http://localhost:8080/api/upload' 
       method='post' 
@@ -22,7 +16,7 @@
           <input class="btn btn-primary my-1" type='submit' value='Upload!' />
       </div>
         
-    </form> 
+    </form>  -->
     <div class="form-group">
         <label>Pildi URL</label>
         <input type="text" class="form-control" [(ngModel)]="postData.photoUrl">
@@ -39,6 +33,7 @@
           <option>Kultuur</option>
           <option>Majandus</option>
           <option>Arvamus</option>
+          <option>Tehnika</option>
         </select>
     </div>
     <div class="form-group">

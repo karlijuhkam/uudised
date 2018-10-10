@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SinglePostComponent implements OnInit {
   posts:any = [];
-  constructor(private  ApiService:  ApiService, private route: ActivatedRoute) { }
+  constructor(private  ApiService:  ApiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.ApiService.getPost(this.route.snapshot.params['id']).subscribe((data: {}) => {
@@ -18,4 +18,14 @@ export class SinglePostComponent implements OnInit {
       this.posts = data;
   })
   }
+  delete(id) {
+    this.ApiService.deletePost(id)
+      .subscribe(res => {
+        this.router.navigate(['']);
+        }, (err) => {
+          console.log(err);
+        }
+      );
+  }
+
 }
