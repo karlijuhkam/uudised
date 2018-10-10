@@ -33,6 +33,7 @@
     "lodash": "^4.17.11",
     "mongoose": "^5.2.15",
     "ngx-order-pipe": "^2.0.1",
+    "octicons": "^8.1.0",
     "popper.js": "^1.14.4",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"

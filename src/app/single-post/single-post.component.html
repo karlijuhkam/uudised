@@ -1,12 +1,12 @@
 
 <div class="my-4 pt-3" *ngIf="posts">
   <h3 class="text-center">{{posts.title}}</h3>
-  <p class="text-center">{{ posts.date | date:'dd.mm.yyyy hh:mm' }}</p>
+  <p class="text-center">{{ posts.date | date:'dd.MM.yyyy HH:mm' }}</p>
   <p class="text-center"><span class="badge badge-dark">{{posts.category}}</span> </p>
   <div class="text-center mb-3"> <img src="{{posts.photoUrl}}"></div>
  
   <p [innerHtml]="posts.content"></p>
   <p>Autor: <span>{{ posts.author }}</span></p>
-  <button class="delete btn btn-danger" title="Kustuta postitus"
-                                    (click)="delete(posts._id)">x</button>
+  <button class="delete btn btn-danger fa fa-trash" title="Kustuta postitus"
+                                    (click)="delete(posts._id)"></button>
 </div>
