@@ -1,4 +1,4 @@
-# Uudisteportaal
+# Uudisteportaal 0.10.0
 
 Hajusrakendus uudisteportaali haldamiseks.
 
