@@ -8,5 +8,5 @@
   <p [innerHtml]="posts.content"></p>
   <p>Autor: <span>{{ posts.author }}</span></p>
   <button class="delete btn btn-danger fa fa-trash" title="Kustuta postitus"
-                                    (click)="delete(posts._id)"></button>
+                                    (click)="delete(posts._id)"></button><button routerLink="/edit/{{posts._id}}" class="btn btn-info mx-2 p-1">Muuda</button>
 </div>
