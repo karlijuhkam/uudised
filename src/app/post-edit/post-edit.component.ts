@@ -10,9 +10,10 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 })
 export class PostEditComponent implements OnInit {
 
-  @Input() postData = { title:'', content: '', photoUrl:'', category:'', tags:'' } ;
-  constructor(private  ApiService:  ApiService, private route: ActivatedRoute, private router: Router) { }
+  @Input() postData: any = { title:'', content: '', photoUrl:'', category:'', tags:'' } ;
+  constructor(private  ApiService:  ApiService, private route: ActivatedRoute, private router: Router,) { }
   posts:any = [];
+  
 
   ngOnInit() {
     this.ApiService.getPost(this.route.snapshot.params['id']).subscribe((data: {}) => {
@@ -22,7 +23,7 @@ export class PostEditComponent implements OnInit {
   }
   updatePost() {
     this.ApiService.updatePost(this.route.snapshot.params['id'], this.postData).subscribe((result) => {
-      this.router.navigate(['']);
+      this.router.navigate(['/post/'+this.route.snapshot.params['id']]);
     }, (err) => {
       console.log(err);
     });
