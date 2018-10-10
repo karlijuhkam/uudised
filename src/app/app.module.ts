@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { SinglePostComponent } from './single-post/single-post.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { OrderByPipe } from './order-by.pipe';
+import { PostEditComponent } from './post-edit/post-edit.component';
 
 
 //we'll add our routes here
@@ -24,6 +25,9 @@ const appRoutes: Routes = [
   { path:'add',
     component: AddPostComponent,
   },
+  { path:'edit/:id',
+    component: PostEditComponent,
+  }
 ]
 
 @NgModule({
@@ -32,7 +36,8 @@ const appRoutes: Routes = [
     NewsComponent,
     SinglePostComponent,
     AddPostComponent,
-    OrderByPipe
+    OrderByPipe,
+    PostEditComponent
   ],
   imports: [
     BrowserModule,

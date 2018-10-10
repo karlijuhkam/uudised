@@ -8,8 +8,9 @@
                               </div>
                               <div class="px-1">
                                     <h3 class=""><a routerLink="/post/{{post._id}}">{{post.title}}</a></h3>
-                                    <p class="badge badge-dark">{{post.category}}</p><br><button class="delete btn btn-danger fa fa-trash" title="Kustuta postitus"
+                                    <p class="badge badge-dark">{{post.category}}</p><br><button class="delete btn btn-danger fa fa-trash fa-lg p-2" title="Kustuta postitus"
                                     (click)="delete(post._id)"></button>
+                                    <button routerLink="/edit/{{post._id}}" class="btn btn-info mx-2 p-1">Muuda</button>
                               </div>
                         </div>
                   </div>

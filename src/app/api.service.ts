@@ -47,7 +47,13 @@ export class ApiService {
   deletePost (id): Observable<any> {
     return this.http.delete<any>(API_URL + '/news/' + id, httpOptions).pipe(
       tap(_ => console.log(`deleted post id=${id}`)),
-      catchError(this.handleError<any>('deleteProduct'))
+      catchError(this.handleError<any>('deletePost'))
+    );
+  }
+  updatePost (id, post): Observable<any> {
+    return this.http.put(API_URL + '/news/' + id, JSON.stringify(post), httpOptions).pipe(
+      tap(_ => console.log(`updated post id=${id}`)),
+      catchError(this.handleError<any>('updatePost'))
     );
   }
 

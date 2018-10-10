@@ -1,0 +1,34 @@
+<div class="m-4 p-4 addNews">
+  <h3>Muuda uudist</h3>
+  <div>
+      <div class="form-group">
+          <label>Pealkiri</label>
+          <input type="text" class="form-control" [(ngModel)]="postData.title" value="{{posts.title}}">
+      </div>
+
+    <div class="form-group">
+        <label>Pildi URL</label>
+        <input type="text" class="form-control" [(ngModel)]="postData.photoUrl" value="{{posts.photoUrl}}">
+    </div>
+    <div class="form-group">
+        <label>Sisu</label>
+        <editor name="content" [(ngModel)]="postData.content" apiKey="test" [init]="{plugins: 'link', width: '1000', height: 300}" [initialValue]=""></editor>
+    </div>
+    <div class="form-group">
+        <label for="kategooriad">Kategooriad</label>
+        <select class="form-control" id="kategooriad" [(ngModel)]="postData.category" value="{{posts.category}}">
+          <option>Eesti</option>
+          <option>Maailm</option>
+          <option>Kultuur</option>
+          <option>Majandus</option>
+          <option>Arvamus</option>
+          <option>Tehnika</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Märksõnad</label>
+        <input type="text" class="form-control" [(ngModel)]="postData.tags" value="{{posts.tags}}">
+    </div>
+  </div>
+  <button (click)="updatePost()" class="btn btn-primary my-1">Salvesta</button>
+</div>
